@@ -1,3 +1,6 @@
+#https://github.com/University-of-Utah-CS3505/a8-sprite-previewer-Rqzzz
+#Rongquan Zhang
+
 import math
 
 from PyQt6.QtGui import *
