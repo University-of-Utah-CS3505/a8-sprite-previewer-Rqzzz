@@ -20,27 +20,20 @@ class SpritePreview(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Sprite Animation Preview")
-        # This loads the provided sprite and would need to be changed for your own.
         self.num_frames = 21
         self.frames = load_sprite('spriteImages',self.num_frames)
+        self.current_frame = 0
+        self.is_playing = False
+        self.timer = QTimer(self)
+        self.timer.timeout.connect(self.update_frame)
 
-        # Add any other instance variables needed to track information as the program
-        # runs here
-
-        # Make the GUI in the setupUI method
         self.setupUI()
 
 
     def setupUI(self):
-        # An application needs a central widget - often a QFrame
-        frame = QFrame()
-
-        # Add a lot of code here to make layouts, more QFrame or QWidgets, and
-        # the other components of the program.
-        # Create needed connections between the UI components and slot methods
-        # you define in this class.
-
-        self.setCentralWidget(frame)
+        central_widget = QWidget()
+        self.setCentralWidget(central_widget)
+        main_layout = QVBoxLayout(central_widget)
 
 
     # You will need methods in the class to act as slots to connect to signals
